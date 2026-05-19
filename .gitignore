@@ -1,0 +1,40 @@
+# --- 민감 정보 (절대 commit X) ---
+.env
+.env.local
+.env*.local
+*.key
+*.pem
+secrets/
+.secrets/
+credentials.json
+
+# --- 런타임 상태 (각 운영자 환경마다 다름) ---
+data/
+output/
+judge-output/
+/tmp/
+
+# --- Node / Next.js ---
+node_modules/
+.next/
+out/
+dist/
+build/
+*.log
+.DS_Store
+
+# --- Editor ---
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# --- macOS ---
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# --- 운영자 본인 프로젝트 트래커 (스킬 외부 사용자에겐 무관) ---
+CLAUDE.md
+TODO.md
+MEMORY.md

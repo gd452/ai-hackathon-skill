@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+/* ─── Color tokens ─── */
+:root {
+  /* light — muted, paper-ish */
+  --background: #fbfcfb;
+  --background-deep: #f4f7f5;
+  --foreground: #0a0e0c;
+  --muted: #5e6b65;
+  --muted-soft: #889089;
+  --border: #e2e8e4;
+  --border-strong: #c9d3cc;
+  --card: #ffffff;
+  --card-hover: #f6f9f7;
+  --accent: #1f8a3a;
+  --accent-bright: #16752f;
+  --accent-soft: rgba(31, 138, 58, 0.10);
+  --accent-fg: #ffffff;
+  --warn: #b45309;
+  --error: #b91c1c;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0d10;
+    --background-deep: #06080a;
+    --foreground: #f3f6f4;
+    --muted: #8a9590;
+    --muted-soft: #5d6863;
+    --border: #1c2228;
+    --border-strong: #2a3239;
+    --card: #0f1316;
+    --card-hover: #131820;
+    --accent: #57c97a;
+    --accent-bright: #7fdf99;
+    --accent-soft: rgba(87, 201, 122, 0.12);
+    --accent-fg: #0a0d10;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-accent: var(--accent);
+  --color-accent-bright: var(--accent-bright);
+  --font-sans: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+    "Pretendard", sans-serif;
+  --font-mono: var(--font-geist-mono), "SF Mono", monospace;
+}
+
+/* ─── Base ─── */
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* tighter line-height for headings */
+h1, h2, h3, h4 {
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+pre {
+  background: var(--background-deep);
+  border: 1px solid var(--border);
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.82em;
+  line-height: 1.55;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+}
+
+/* selection */
+::selection {
+  background: var(--accent-soft);
+  color: var(--accent-bright);
+}
+
+/* subtle scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-strong) transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 4px;
+}
+
+/* ─── Utility — display heading ─── */
+.text-display {
+  font-size: clamp(1.875rem, 1.4rem + 1.8vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* ─── Card primitive ─── */
+.surface {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+.surface-hover:hover {
+  border-color: var(--accent);
+  background: var(--card-hover);
+}
